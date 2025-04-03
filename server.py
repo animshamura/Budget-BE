@@ -132,6 +132,7 @@ def get_sector_spendings(db: Session = Depends(get_db)):
 
 # Initialize Database
 print("🔄 Creating database tables if they don't exist...")
+Base.metadata.drop_all(bind=engine)
 Base.metadata.create_all(bind=engine)
 db_session = SessionLocal()
 print("📥 Loading data from CSV...")
